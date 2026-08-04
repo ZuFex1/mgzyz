@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>MaoGE资源站</title>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:"Roboto","Microsoft YaHei",Arial,sans-serif;
+}
+
+
+body{
+
+    margin:0;
+
+    background:#f4f4f4;
+
+    color:#333;
+
+    padding-bottom:65px;
+
+}
+
+
+/* 顶部 */
+
+header{
+
+    height:56px;
+
+    background:#2196F3;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:20px;
+
+    font-size:21px;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.25);
+
+}
+
+
+
+/* 页面 */
+
+.page{
+
+    display:none;
+
+}
+
+
+.page.active{
+
+    display:block;
+
+}
+
+
+
+/* 搜索 */
+
+.search{
+
+    padding:14px;
+
+}
+
+
+.search input{
+
+    width:100%;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:22px;
+
+    padding-left:18px;
+
+    font-size:15px;
+
+    box-shadow:0 2px 5px #ddd;
+
+}
+
+
+
+/* 状态 */
+
+.card{
+
+    background:white;
+
+    margin:0 14px 14px;
+
+    padding:16px;
+
+    border-radius:8px;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.12);
+
+}
+
+
+
+.title{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+.desc{
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-top:6px;
+
+}
+
+
+
+
+/* 软件 */
+
+
+.list{
+
+    padding:0 14px;
+
+}
+
+
+
+.app{
+
+    background:white;
+
+    min-height:96px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    border-radius:8px;
+
+    box-shadow:0 2px 7px rgba(0,0,0,.12);
+
+}
+
+
+
+.app img{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:15px;
+
+    margin-right:15px;
+
+}
+
+
+
+.info{
+
+    flex:1;
+
+}
+
+
+.name{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+
+.detail{
+
+    font-size:13px;
+
+    color:#777;
+
+    line-height:20px;
+
+    margin-top:5px;
+
+}
+
+
+
+.download{
+
+    background:#2196F3;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:8px 15px;
+
+    border-radius:18px;
+
+    font-size:14px;
+
+}
+
+
+
+/* 我的 */
+
+
+.profile{
+
+    margin:25px 14px;
+
+    background:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 7px rgba(0,0,0,.12);
+
+}
+
+
+.avatar{
+
+    width:75px;
+
+    height:75px;
+
+    background:#2196F3;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+
+/* 人形 */
+
+.avatar:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+
+    height:20px;
+
+    background:white;
+
+    border-radius:50%;
+
+    left:27px;
+
+    top:14px;
+
+}
+
+
+.avatar:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:42px;
+
+    height:22px;
+
+    background:white;
+
+    border-radius:22px 22px 5px 5px;
+
+    left:16px;
+
+    bottom:12px;
+
+}
+
+
+.username{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+.login{
+
+    margin-top:8px;
+
+    color:#2196F3;
+
+    font-size:14px;
+
+}
+
+
+.menu{
+
+    background:white;
+
+    margin:12px 14px;
+
+    padding:16px;
+
+    border-radius:6px;
+
+    box-shadow:0 1px 5px rgba(0,0,0,.1);
+
+}
+
+
+
+
+/* 底部 */
+
+footer{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    height:60px;
+
+    background:white;
+
+    display:flex;
+
+    border-top:1px solid #ddd;
+
+}
+
+
+
+.tab{
+
+    flex:1;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:13px;
+
+    padding-top:7px;
+
+}
+
+
+
+.tab svg{
+
+    width:24px;
+
+    height:24px;
+
+    fill:none;
+
+    stroke:#888;
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+}
+
+
+
+.tab.active{
+
+    color:#2196F3;
+
+}
+
+
+
+.tab.active svg{
+
+    stroke:#2196F3;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+MaoGE资源站
+
+</header>
+
+
+
+
+
+<!-- 首页 -->
+
+
+<div id="home" class="page active">
+
+
+<div class="search">
+
+<input placeholder="搜索应用">
+
+</div>
+
+
+
+<div class="card">
+
+<div class="title">
+
+MaoGE数字资源站
+
+</div>
+
+
+<div class="desc">
+
+mgzyz.de5.net · Android应用下载
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="list">
+
+
+
+<div class="app">
+
+<img src="icon/maoge.png">
+
+
+<div class="info">
+
+<div class="name">
+
+MaoGE工具箱
+
+</div>
+
+
+<div class="detail">
+
+版本：1.0<br>
+
+大小：20MB<br>
+
+Android 4.4+
+
+</div>
+
+
+</div>
+
+
+<a class="download" href="apk/maoge.apk">
+
+下载
+
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="app">
+
+<img src="icon/default.png">
+
+
+<div class="info">
+
+<div class="name">
+
+QQ旧版
+
+</div>
+
+
+<div class="detail">
+
+版本：8.9.0<br>
+
+大小：80MB<br>
+
+Android 5.0+
+
+</div>
+
+
+</div>
+
+
+<a class="download" href="#">
+
+下载
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- 我的 -->
+
+
+<div id="mine" class="page">
+
+
+<div class="profile" onclick="location.href='user.html'">
+
+
+<div class="avatar"></div>
+
+
+<div class="username">
+
+MaoGE用户
+
+</div>
+
+
+<div class="login">
+
+点击登录
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="menu">
+
+下载记录
+
+</div>
+
+
+<div class="menu">
+
+收藏的软件
+
+</div>
+
+
+<div class="menu">
+
+关于本站
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<footer>
+
+
+
+<div class="tab active" onclick="showPage('home',this)">
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M3 11L12 3l9 8"></path>
+
+<path d="M5 10v11h14V10"></path>
+
+</svg>
+
+<br>
+
+首页
+
+
+</div>
+
+
+
+
+
+
+<div class="tab" onclick="showPage('mine',this)">
+
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="8" r="4"></circle>
+
+<path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path>
+
+</svg>
+
+
+<br>
+
+我的
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script>
+
+
+function showPage(id,obj){
+
+
+document.querySelectorAll(".page")
+.forEach(function(p){
+
+p.classList.remove("active");
+
+});
+
+
+document.getElementById(id)
+.classList.add("active");
+
+
+
+document.querySelectorAll(".tab")
+.forEach(function(t){
+
+t.classList.remove("active");
+
+});
+
+
+obj.classList.add("active");
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
